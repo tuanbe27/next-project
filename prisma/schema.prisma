@@ -10,4 +10,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model
+model Feedback {
+  id         String   @id @default(uuid())
+  text       String   @unique
+  rating     Float
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
